@@ -1,4 +1,8 @@
 require "pokemon_Api/version"
+require_relative "pokemon_Api/api"
+require_relative "pokemon_Api/cli"
+require_relative "pokemon_Api/pokemon"
+
 
 module PokemonApi
   class Error < StandardError; end
