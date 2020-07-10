@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "pokemon_Api"
+require_relative "../lib/pokemon_Api"
+
 
 PokemonApi::CLI.new.start
