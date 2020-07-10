@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   #spec.bindir        = "exe"
   spec.executables   = ["pokemon_cli"]
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "rest-client"
 end
