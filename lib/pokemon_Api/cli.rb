@@ -1,3 +1,4 @@
+require "pry"
 module PokemonApi
     class CLI
         def start
@@ -21,8 +22,9 @@ module PokemonApi
             input = gets.chomp
 
             @pokemon_obj = Pokemon.all[input.to_i - 1]
-
             
+            API.query_pokemon(@pokemon_obj)
+            binding.pry            
         end
 
 
