@@ -24,6 +24,8 @@ module PokemonApi
             @pokemon_obj = Pokemon.all[input.to_i - 1]
             
             API.query_pokemon(@pokemon_obj)
+
+            display_abilities(@pokemon_obj)
             binding.pry            
         end
 
@@ -33,6 +35,14 @@ module PokemonApi
                 puts "#{idx}. #{pokemon_obj.name.capitalize}"
             end
         end
+
+        def display_abilities(pokemon_obj)
+            @pokemon_obj.abilities.each.with_index(1) do |ability, idx|
+                puts "#{idx}. #{ability.capitalize}"
+            end
+        end
+
+        
 
         
     end
