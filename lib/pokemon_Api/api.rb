@@ -9,8 +9,12 @@ module PokemonApi
             hash_pokemons = JSON.parse(results)
             hash_pokemons["results"].each do |hash|
                 Pokemon.new(hash)
-            binding.pry
             end
+        end
+
+        def self.query_pokemon(obj)
+            results = RestClient.get(obj.url)
+            hash_categories = JSON.parse(results)
         end
     
     end
