@@ -15,7 +15,17 @@ module PokemonApi
         def self.query_pokemon(obj)
             results = RestClient.get(obj.url)
             hash_categories = JSON.parse(results)
+
+            get_abilities(obj, hash_categories["abilities"])
         end
+
+        def self.get_abilities(obj, array_abilities)
+            array_abilities.each do |hash|
+                obj.abilities << hash["ability"]["name"]
+            end
+        end
+
+    
     
     end
 end
