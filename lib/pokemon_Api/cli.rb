@@ -15,17 +15,21 @@ module PokemonApi
 
         def menu
             puts "Please select a number from the list below to get more options about that Pokemon."
+            puts "Type 'exit' to quit the app."
             puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
         
             display_pokemon_names
 
-            pokemon_selection = gets.chomp
+            pokemon_selection = gets.chomp.to_i
 
-            @pokemon_obj = Pokemon.all[pokemon_selection.to_i - 1]
-            
-            API.query_pokemon(@pokemon_obj)
-
-            list_of_categories
+            if pokemon_selection.between?(1, 20)
+                @pokemon_obj = Pokemon.all[pokemon_selection - 1]
+                API.query_pokemon(@pokemon_obj)
+                list_of_categories
+            else
+                puts "Wrong input. Please try again."
+                menu
+            end
 
         end
 
@@ -63,6 +67,7 @@ module PokemonApi
                 list_of_categories
             end
         end
+
 
 
         def display_pokemon_names
