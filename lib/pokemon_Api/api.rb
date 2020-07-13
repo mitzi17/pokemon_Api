@@ -17,11 +17,25 @@ module PokemonApi
             hash_categories = JSON.parse(results)
 
             get_abilities(obj, hash_categories["abilities"])
+            get_moves(obj, hash_categories["moves"])
+            get_types(obj, hash_categories["types"])
         end
 
         def self.get_abilities(obj, array_abilities)
             array_abilities.each do |hash|
                 obj.abilities << hash["ability"]["name"]
+            end
+        end
+
+        def self.get_moves(obj, array_moves)
+            array_moves.each do |hash|
+                obj.moves << hash["move"]["name"]
+            end
+        end
+
+        def self.get_types(obj, array_types)
+            array_types.each do |hash|
+                obj.types << hash["type"]["name"]
             end
         end
 
