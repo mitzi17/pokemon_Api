@@ -25,10 +25,42 @@ module PokemonApi
             
             API.query_pokemon(@pokemon_obj)
 
-            display_abilities(@pokemon_obj)
-            display_moves(@pokemon_obj)
-            display_types(@pokemon_obj)
+            list_of_categories
+
+        end
+
+        def list_of_categories
+
+            puts "Enter a number from the list of categories to get more details about that Pokemon."
+            puts "Type 'menu' to select a different Pokemon or type 'exit' to quit the app."
+            puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+            puts "1. Abilities"
+            puts "2. Moves"
+            puts "3. Types"
                       
+            category_input = gets.chomp
+
+            if category_input == "1"
+            puts "Your pokemon's abilities are:"
+            display_abilities(@pokemon_obj)
+            list_of_categories
+            elsif category_input == "2"
+            puts "Your pokemon's moves are:"            
+            display_moves(@pokemon_obj)
+            list_of_categories
+            elsif category_input == "3"
+            puts "Your pokemon's type(s) is/are:"
+            display_types(@pokemon_obj)
+            list_of_categories
+            elsif category_input == "menu"
+                menu
+            elsif category_input == "exit"
+                puts "Thank you for using the Online Pokedex. See you soon!"
+            else
+                puts "Whoops! Not a valid entry. Please select a number from the list or type 'exit' to quit the app."
+                list_of_categories
+            end
+                    
         end
 
 
