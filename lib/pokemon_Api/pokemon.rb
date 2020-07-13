@@ -1,13 +1,15 @@
 module PokemonApi
     class Pokemon
 
-        attr_accessor :name, :url, :abilities
+        attr_accessor :name, :url, :abilities, :moves, :types
         @@all = [ ]
 
         def initialize(hash)
             @name = hash["name"]
             @url = hash["url"]
             @abilities = [ ]
+            @moves = [ ]
+            @types = [ ]
             save
         end
 
