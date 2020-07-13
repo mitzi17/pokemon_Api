@@ -28,7 +28,7 @@ module PokemonApi
             display_abilities(@pokemon_obj)
             display_moves(@pokemon_obj)
             display_types(@pokemon_obj)
-            binding.pry            
+                      
         end
 
 
