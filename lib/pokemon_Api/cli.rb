@@ -19,9 +19,9 @@ module PokemonApi
         
             display_pokemon_names
 
-            input = gets.chomp
+            pokemon_selection = gets.chomp
 
-            @pokemon_obj = Pokemon.all[input.to_i - 1]
+            @pokemon_obj = Pokemon.all[pokemon_selection.to_i - 1]
             
             API.query_pokemon(@pokemon_obj)
 
@@ -38,26 +38,28 @@ module PokemonApi
             puts "2. Moves"
             puts "3. Types"
                       
-            category_input = gets.chomp
+            category_selection = gets.chomp
 
-            if category_input == "1"
-            puts "Your pokemon's abilities are:"
-            display_abilities(@pokemon_obj)
-            list_of_categories
-            elsif category_input == "2"
-            puts "Your pokemon's moves are:"            
-            display_moves(@pokemon_obj)
-            list_of_categories
-            elsif category_input == "3"
-            puts "Your pokemon's type(s) is/are:"
-            display_types(@pokemon_obj)
-            list_of_categories
-            elsif category_input == "menu"
+            case category_selection
+
+                when "1"
+                puts "Your pokemon's abilities are:"
+                display_abilities(@pokemon_obj)
+                list_of_categories
+                when "2"
+                puts "Your pokemon's moves are:"            
+                display_moves(@pokemon_obj)
+                list_of_categories
+                when "3"
+                puts "Your pokemon's type(s) is/are:"
+                display_types(@pokemon_obj)
+                list_of_categories
+                when "menu"
                 menu
-            elsif category_input == "exit"
+                when "exit"
                 puts "Thank you for using the Online Pokedex. See you soon!"
-            else
-                puts "Whoops! Not a valid entry. Please select a number from the list or type 'exit' to quit the app."
+                else
+                puts "Whoops! Not a valid entry."
                 list_of_categories
             end
                     
