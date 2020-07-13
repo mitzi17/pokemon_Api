@@ -31,7 +31,7 @@ module PokemonApi
 
         def list_of_categories
 
-            puts "Enter a number from the list of categories to get more details about that Pokemon."
+            puts "Enter a number from the list of categories to get more details about #{@pokemon_obj.name.capitalize}."
             puts "Type 'menu' to select a different Pokemon or type 'exit' to quit the app."
             puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
             puts "1. Abilities"
@@ -43,15 +43,15 @@ module PokemonApi
             case category_selection
 
                 when "1"
-                puts "Your pokemon's abilities are:"
+                puts "#{@pokemon_obj.name.capitalize}'s abilities are:"
                 display_abilities(@pokemon_obj)
                 list_of_categories
                 when "2"
-                puts "Your pokemon's moves are:"            
+                puts "#{@pokemon_obj.name.capitalize}'s moves are:"            
                 display_moves(@pokemon_obj)
                 list_of_categories
                 when "3"
-                puts "Your pokemon's type(s) is/are:"
+                puts "#{@pokemon_obj.name.capitalize}'s type(s) is/are:"
                 display_types(@pokemon_obj)
                 list_of_categories
                 when "menu"
@@ -62,7 +62,6 @@ module PokemonApi
                 puts "Whoops! Not a valid entry."
                 list_of_categories
             end
-                    
         end
 
 
