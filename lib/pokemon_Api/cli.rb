@@ -22,55 +22,55 @@ module PokemonApi
 
             pokemon_selection = gets.chomp
 
-           
             if pokemon_selection.to_i.between?(1, 20) == true
                 @pokemon_obj = Pokemon.all[pokemon_selection.to_i - 1]
                 API.query_pokemon(@pokemon_obj)
-                list_of_categories
-            
+                list_of_attributes
             elsif pokemon_selection == "exit"
                 puts "Ok bye. See you soon!"
-               
             else
                 puts "Wrong input. Please try again."
                 menu
-            
             end
-
         end
 
-        def list_of_categories
+        def list_of_attributes
 
-            puts "Enter a number from the list of categories to get more details about #{@pokemon_obj.name.capitalize}."
+            puts "Enter a number from the list of attributes to get more details about #{@pokemon_obj.name.capitalize}."
             puts "Type 'menu' to select a different Pokemon or type 'exit' to quit the app."
             puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
             puts "1. Abilities"
             puts "2. Moves"
             puts "3. Types"
-                      
-            category_selection = gets.chomp
 
-            case category_selection
+            user_attribute_selection
+        end
+
+        def user_attribute_selection
+                      
+            attribute_selection = gets.chomp
+
+            case attribute_selection
 
                 when "1"
                 puts "#{@pokemon_obj.name.capitalize}'s abilities are:"
                 display_abilities(@pokemon_obj)
-                list_of_categories
+                list_of_attributes
                 when "2"
                 puts "#{@pokemon_obj.name.capitalize}'s moves are:"            
                 display_moves(@pokemon_obj)
-                list_of_categories
+                list_of_attributes
                 when "3"
                 puts "#{@pokemon_obj.name.capitalize}'s type(s) is/are:"
                 display_types(@pokemon_obj)
-                list_of_categories
+                list_of_attributes
                 when "menu"
                 menu
                 when "exit"
                 puts "Thank you for using the Online Pokedex. See you soon!"
                 else
                 puts "Whoops! Not a valid entry."
-                list_of_categories
+                list_of_attributes
             end
         end
 
@@ -100,8 +100,5 @@ module PokemonApi
             end
         end
 
-        
-
-        
     end
 end
