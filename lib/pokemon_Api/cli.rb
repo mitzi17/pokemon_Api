@@ -20,15 +20,21 @@ module PokemonApi
         
             display_pokemon_names
 
-            pokemon_selection = gets.chomp.to_i
+            pokemon_selection = gets.chomp
 
-            if pokemon_selection.between?(1, 20)
-                @pokemon_obj = Pokemon.all[pokemon_selection - 1]
+           
+            if pokemon_selection.to_i.between?(1, 20) == true
+                @pokemon_obj = Pokemon.all[pokemon_selection.to_i - 1]
                 API.query_pokemon(@pokemon_obj)
                 list_of_categories
+            
+            elsif pokemon_selection == "exit"
+                puts "Ok bye. See you soon!"
+               
             else
                 puts "Wrong input. Please try again."
                 menu
+            
             end
 
         end
