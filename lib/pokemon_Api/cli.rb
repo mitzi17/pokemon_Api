@@ -9,11 +9,12 @@ module PokemonApi
             puts ""
             puts ""
             API.get_pokemon
-            sleep(1.2)
+            sleep(1)
             menu
         end
 
         def menu
+            puts ""
             puts "Please select a number from the list below to get more options about that Pokemon."
             puts "Type 'exit' to quit the app."
             puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
@@ -27,15 +28,21 @@ module PokemonApi
                 API.query_pokemon(@pokemon_obj)
                 list_of_attributes
             elsif pokemon_selection == "exit"
-                puts "Ok bye. See you soon!"
+                puts ""
+                puts "******************************************************"
+                puts "THANK YOU FOR USING THE ONLINE POKEDEX. SEE YOU SOON!!"
+                puts "******************************************************"
             else
-                puts "Wrong input. Please try again."
+                puts ""
+                puts "Invalid input. Please try again."
+                puts ""
                 menu
             end
         end
 
         def list_of_attributes
 
+            puts ""
             puts "Enter a number from the list of attributes to get more details about #{@pokemon_obj.name.capitalize}."
             puts "Type 'menu' to select a different Pokemon or type 'exit' to quit the app."
             puts "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
@@ -53,23 +60,34 @@ module PokemonApi
             case attribute_selection
 
                 when "1"
+                puts ""
                 puts "#{@pokemon_obj.name.capitalize}'s abilities are:"
+                puts "- - - - - - - - - - - - - - - - - - - - - - - - "
                 display_abilities(@pokemon_obj)
                 list_of_attributes
                 when "2"
-                puts "#{@pokemon_obj.name.capitalize}'s moves are:"            
+                puts ""
+                puts "#{@pokemon_obj.name.capitalize}'s moves are:"
+                puts "- - - - - - - - - - - - - - - - - - - - - - "            
                 display_moves(@pokemon_obj)
                 list_of_attributes
                 when "3"
+                puts ""
                 puts "#{@pokemon_obj.name.capitalize}'s type(s) is/are:"
+                puts "- - - - - - - - - - - - - - - - - - - - - - - - - "
                 display_types(@pokemon_obj)
                 list_of_attributes
                 when "menu"
                 menu
                 when "exit"
-                puts "Thank you for using the Online Pokedex. See you soon!"
+                puts ""
+                puts "*****************************************************"
+                puts "THANK YOU FOR USING THE ONLINE POKEDEX. SEE YOU SOON!"
+                puts "*****************************************************"
                 else
+                puts ""
                 puts "Whoops! Not a valid entry."
+                puts ""
                 list_of_attributes
             end
         end
