@@ -14,11 +14,11 @@ module PokemonApi
 
         def self.query_pokemon(obj)
             results = RestClient.get(obj.url)
-            hash_categories = JSON.parse(results)
+            hash_attributes = JSON.parse(results)
 
-            get_abilities(obj, hash_categories["abilities"])
-            get_moves(obj, hash_categories["moves"])
-            get_types(obj, hash_categories["types"])
+            get_abilities(obj, hash_attributes["abilities"])
+            get_moves(obj, hash_attributes["moves"])
+            get_types(obj, hash_attributes["types"])
         end
 
         def self.get_abilities(obj, array_abilities)
