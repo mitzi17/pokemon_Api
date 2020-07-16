@@ -1,8 +1,6 @@
 # PokemonApi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pokemon_Api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Pokemon API Data Gem! This app is intended to provide the user with information about a Pokemon of their choice from a list of 20. After making their selection, they can learn about that Pokemon's abilities, moves, and types.
 
 ## Installation
 
